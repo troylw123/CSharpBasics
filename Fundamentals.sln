@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operators", "03_Operators\O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strings", "04_Strings\Strings.csproj", "{7776E021-B9EB-438C-926C-1284093CA60E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypesChallenges", "02_Types_Challenges\TypesChallenges.csproj", "{D7781C69-5819-4E87-B67A-DCC5E884280E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{7776E021-B9EB-438C-926C-1284093CA60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7776E021-B9EB-438C-926C-1284093CA60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7776E021-B9EB-438C-926C-1284093CA60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7781C69-5819-4E87-B67A-DCC5E884280E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7781C69-5819-4E87-B67A-DCC5E884280E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7781C69-5819-4E87-B67A-DCC5E884280E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7781C69-5819-4E87-B67A-DCC5E884280E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
