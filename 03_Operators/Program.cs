@@ -18,4 +18,6 @@ Console.WriteLine(10 % 2);
 Console.WriteLine(10 % 4);
 Console.WriteLine(16 % 3);
 
+// alt + up or down moves an entire line
+// alt + shift + up or down copies an entire line
 
