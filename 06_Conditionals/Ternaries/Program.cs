@@ -8,4 +8,10 @@ string output = age >= 18 ? "You can vote!" : "You're too young to vote.";
 
 Console.WriteLine(output);
 
-
+// This is the challenge to write the above ternary as an if else
+// if (age >= 18){
+//     Console.WriteLine("You can vote!");
+// }
+// else {
+//     Console.WriteLine("You're too young to vote.");
+// }

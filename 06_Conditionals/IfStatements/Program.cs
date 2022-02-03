@@ -46,3 +46,16 @@ else if(!isSnowing){
 else {
     Console.WriteLine("I don't know what we are even talking about!!");
 }
+
+bool hasUmbrella = false;
+bool isGoingOutWhileRaining = true;
+
+if(hasUmbrella && isGoingOutWhileRaining){
+    Console.WriteLine("You are good to go, sir!");
+}
+else if (isGoingOutWhileRaining) {
+    Console.WriteLine("Get an umbrella or else you'll get wet.");
+}
+else {
+    Console.WriteLine("What are you worried about? It's not raining.");
+}
