@@ -1,10 +1,15 @@
 ﻿// Class is the noun, property is the adjective, method is the verb
 // alt + shift + f to auto format
-// Classes and properties use PascalCase
+// Classes and Properties use PascalCase
 
+
+// using a Directive
 using Classes;
 
+// Top Level Statements
+// Creating a new instance vv
 Donut doug = new Donut("Jelly filled", true, false);
+
 doug.SetDonutType("Glazed");
 doug.Filling = "Strawberry Jam";
 Console.WriteLine(doug.GetDonutType());
@@ -23,16 +28,26 @@ greet.PrintHello("Tony");
 greet.PrintRandomGreeting();
 
 Calculator calculator = new Calculator();
-Console.WriteLine(calculator.Age(new DateTime(1984,12,09)));
+Console.WriteLine(calculator.Age(new DateTime(1984, 12, 09)));
 
+Person me = new Person();
+me.FirstName = "troy";
+me.LastName = "weaver";
+me.DateOfBirth = new DateTime(1984, 12, 09);
+me.Introduction();
 
+Person luke = new Person("luke", "skywalker", new DateTime(1975, 01, 01));
+luke.Introduction();
+
+// Everything must exist inside a namespace
 namespace Classes
 {
     class Donut
     {
-
+        // Field
         private string donutType;
 
+        // Constructor (parameters)
         public Donut(string type, bool sprinkles, bool icing)
         // public Donut() {} <- Implicit constructor
         // When define constructor (like above), implicit constructor removed
@@ -65,7 +80,7 @@ namespace Classes
         {
             donutType = type;
         }
-        // Properties
+        // Properties with set and get accessors like GetDonutType() and SetDonutType()
         public string Filling { get; set; }
         public bool IsSprinkled { get; set; }
         public bool HasIcing { get; set; }
@@ -98,14 +113,22 @@ namespace Classes
         public void PrintRandomGreeting()
         {
             // Lists/arrays/enumberable index at zero    0       1       3      3       4
-            string[] availableGreetings = new string[]{"Hey", "Howdy", "Sup", "Yo", "Good day"};
+            string[] availableGreetings = new string[] { "Hey", "Howdy", "Sup", "Yo", "Good day" };
             int randomNumber = _random.Next(0, availableGreetings.Length);
             string randomGreeting = availableGreetings.ElementAt(randomNumber);
             Console.WriteLine(randomGreeting);
         }
+        public string RandomGreeting()
+        {
+            // Lists/arrays/enumberable index at zero    0       1       3      3       4
+            string[] availableGreetings = new string[] { "Hey", "Howdy", "Sup", "Yo", "Good day" };
+            int randomNumber = _random.Next(0, availableGreetings.Length);
+            string randomGreeting = availableGreetings.ElementAt(randomNumber);
+            return randomGreeting;
+        }
     }
 
-    class Calculator 
+    class Calculator
     {
         public int Add(int numOne, int numTwo)
         {
@@ -130,9 +153,57 @@ namespace Classes
         {
             TimeSpan ageSpan = DateTime.Now - birthdate;
             double totalAgeInYears = ageSpan.TotalDays / 365.25;
-            
+
             int years = Convert.ToInt32(Math.Floor(totalAgeInYears));
             return years;
         }
     }
+
+    class Person
+    {
+        // Allowing an empty constructor vv
+        public Person(){}
+        public Person(string firstName, string lastName, DateTime dOB)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dOB;
+        }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        // Read Only Property (no set)
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        
+        
+        }
+        public DateTime DateOfBirth {get; set;}
+        public int Age 
+        {
+            get
+            {
+                // DRY style - don't repeat yourself
+                Calculator calc = new Calculator();
+                return calc.Age(DateOfBirth);
+            }
+        }
+
+        public void Greet()
+        {
+            Greeter greeter = new Greeter();
+            // Semantic satiation - use word so much it loses meaning
+            greeter.PrintHello(FullName);
+        }
+        public void Introduction()
+        {
+            Greeter greeter = new Greeter();
+            Console.WriteLine($"{greeter.RandomGreeting()}, my name is {FullName} and I am {Age} years old.");
+        }
+    }
 }
+
